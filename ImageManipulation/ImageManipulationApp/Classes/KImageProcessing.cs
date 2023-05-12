@@ -9,13 +9,10 @@ namespace ImageManipulationApp.Classes
 {
     internal class KImageProcessing : ImageProcessing
     {
-        public KImageProcessing(IConvertImage convertImage) : base(convertImage)
-        {
-        }
+        public KImageProcessing(IConvertImage convertImage) : base(convertImage){}
+        public KImageProcessing(IActionsImage actionsImage) : base(actionsImage){}
+        public override Bitmap Convert(PictureBox orginalPicure) => convertImage.Convert(orginalPicure);
+        public override IActionsImage CopyActionsImage() => actionsImage.CopyActionsImage(); 
 
-        public override Bitmap Convert(PictureBox orginalPicure)
-        {
-            return convertImage.Convert(orginalPicure);
-        }
     }
 }

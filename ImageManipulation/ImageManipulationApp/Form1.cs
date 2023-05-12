@@ -47,15 +47,18 @@ namespace ImageManipulationApp
             this.changedPicture.Image = kImageProcessing.Convert(orginalPicure);
         }
         //Wzorzec projektowy - Prototyp
-        ActionsImage90 actionsImage = new ActionsImage90();
         private void button4_Click(object sender, EventArgs e)
         {
+            ActionsImage90 actionsImage = new ActionsImage90();
+            kImageProcessing = new KImageProcessing(actionsImage);
             this.changedPicture.Image = actionsImage.ResizedImage(orginalPicure);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            var actionsImageClone = (ActionsImage90)actionsImage.CopyActionsImage();
+            ActionsImage90 actionsImage = new ActionsImage90();
+            kImageProcessing = new KImageProcessing(actionsImage);
+            var actionsImageClone = (ActionsImage90)kImageProcessing.CopyActionsImage();
             this.changedPicture.Image = actionsImageClone.RotatedPic(orginalPicure);
         }
     }

@@ -4,16 +4,16 @@ using ImageManipulationApp.Interface;
 
 namespace ImageManipulationApp.Classes
 {
-    internal class ActionsImage90 : ActionsImage
+    internal class ActionsImage90 : IActionsImage
     {
-        public override int? Width { get; set; }
-        public override int? Height { get; set; }
+        public  int? Width { get; set; }
+        public  int? Height { get; set; }
         public ActionsImage90(int? width = 200, int? height = 200)
         {
             Width = width;
             Height = height;
         }
-        public override Bitmap ResizedImage(PictureBox orginalPicure)
+        public  Bitmap ResizedImage(PictureBox orginalPicure)
         {
             Bitmap coppy = new Bitmap((Bitmap)orginalPicure.Image);
             // To get orginal image from the bitmap
@@ -23,16 +23,16 @@ namespace ImageManipulationApp.Classes
             return resizedImage.ToBitmap();
         }
 
-        public override Bitmap RotatedPic(PictureBox orginalPicure)
+        public  Bitmap RotatedPic(PictureBox orginalPicure)
         {
             Bitmap rotatedPic = new Bitmap((Bitmap)orginalPicure.Image);
             rotatedPic.RotateFlip(RotateFlipType.Rotate90FlipNone);
             return rotatedPic;
         }
 
-        public override ActionsImage CopyActionsImage()
+        public  IActionsImage CopyActionsImage()
         {
-            return (ActionsImage)MemberwiseClone();
+            return (IActionsImage)MemberwiseClone();
         }
     
     }
