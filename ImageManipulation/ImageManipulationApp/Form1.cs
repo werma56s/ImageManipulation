@@ -46,7 +46,7 @@ namespace ImageManipulationApp
             kImageProcessing = new KImageProcessing(convertToNegative);
             this.changedPicture.Image = kImageProcessing.Convert(orginalPicure);
         }
-        //Wzorzec projektowy - Prototyp
+        
         private void button4_Click(object sender, EventArgs e)
         {
             ResizedImage resizedImage = new ResizedImage();
@@ -54,6 +54,7 @@ namespace ImageManipulationApp
             this.changedPicture.Image = kImageProcessing.(orginalPicure);
         }
 
+        //Wzorzec projektowy - Prototyp
         private void button5_Click(object sender, EventArgs e)
         {
             ActionsImage90 actionsImage = new ActionsImage90();
