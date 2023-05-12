@@ -11,6 +11,7 @@ namespace ImageManipulationApp.Classes
     {
         protected  IConvertImage convertImage;
         protected IActionsImage actionsImage;
+        protected IResizedImage resizedImage;
 
         public ImageProcessing(IConvertImage convertImage)
         {
@@ -19,6 +20,10 @@ namespace ImageManipulationApp.Classes
         public ImageProcessing(IActionsImage actionsImage)
         {
             this.actionsImage = actionsImage;
+        }
+        public ImageProcessing(IResizedImage resizedImage)
+        {
+            this.resizedImage = resizedImage;
         }
         public abstract Bitmap Convert(PictureBox orginalPicure);
 

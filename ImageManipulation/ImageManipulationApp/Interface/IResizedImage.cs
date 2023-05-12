@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace ImageManipulationApp.Interface
 {
-     interface IActionsImage
+    internal interface IResizedImage
     {
-          Bitmap RotatedPic(PictureBox orginalPicure);
-          IActionsImage CopyActionsImage();
+        int Width { get; set; }
+        int Height { get; set; }
+        Bitmap Resized(PictureBox orginalPicure);
     }
 }

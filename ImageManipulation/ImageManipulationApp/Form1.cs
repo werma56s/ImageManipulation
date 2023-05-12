@@ -49,9 +49,9 @@ namespace ImageManipulationApp
         //Wzorzec projektowy - Prototyp
         private void button4_Click(object sender, EventArgs e)
         {
-            ActionsImage90 actionsImage = new ActionsImage90();
-            kImageProcessing = new KImageProcessing(actionsImage);
-            this.changedPicture.Image = actionsImage.ResizedImage(orginalPicure);
+            ResizedImage resizedImage = new ResizedImage();
+            kImageProcessing = new KImageProcessing(resizedImage);
+            this.changedPicture.Image = kImageProcessing.(orginalPicure);
         }
 
         private void button5_Click(object sender, EventArgs e)
