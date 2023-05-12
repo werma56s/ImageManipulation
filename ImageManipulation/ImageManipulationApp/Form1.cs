@@ -51,7 +51,7 @@ namespace ImageManipulationApp
         {
             ResizedImage resizedImage = new ResizedImage();
             kImageProcessing = new KImageProcessing(resizedImage);
-            this.changedPicture.Image = kImageProcessing.(orginalPicure);
+            this.changedPicture.Image = kImageProcessing.Resized(orginalPicure);
         }
 
         //Wzorzec projektowy - Prototyp
