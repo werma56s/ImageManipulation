@@ -2,6 +2,7 @@
 using Emgu.CV;
 using Emgu.CV.Reg;
 using Emgu.CV.Structure;
+using ImageManipulationApp.Classes;
 using System.Drawing;
 using System.IO;
 using static Emgu.CV.DenseRLOFOpticalFlow;
@@ -30,38 +31,32 @@ namespace ImageManipulationApp
                 }
             }
         }
-
+        //Wzorzec - bridge
+        KImageProcessing kImageProcessing;
         private void button2_Click(object sender, EventArgs e)
         {
-            Bitmap coppy = new Bitmap((Bitmap)this.orginalPicure.Image);
-
-            ImageProccessingMethod.ConvertToGray(coppy);
-            this.changedPicture.Image = coppy;
+            ConvertToGray convertToGray = new ConvertToGray();
+            kImageProcessing = new KImageProcessing(convertToGray);
+            this.changedPicture.Image = kImageProcessing.Convert(orginalPicure);
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Bitmap coppy = new Bitmap((Bitmap)this.orginalPicure.Image);
-
-            ImageProccessingMethod.ConvertToNegative(coppy);
-            this.changedPicture.Image = coppy;
+            ConvertToNegative convertToNegative = new ConvertToNegative();
+            kImageProcessing = new KImageProcessing(convertToNegative);
+            this.changedPicture.Image = kImageProcessing.Convert(orginalPicure);
         }
-
+        //Wzorzec projektowy - Prototyp
+        ActionsImage90 actionsImage = new ActionsImage90();
         private void button4_Click(object sender, EventArgs e)
         {
-            Bitmap coppy = new Bitmap((Bitmap)this.orginalPicure.Image);
-            // To get orginal image from the bitmap
-            Image<Bgr, Byte> captureImage = coppy.ToImage<Bgr, byte>();
-            // To resize the image 
-            Image<Bgr, byte> resizedImage = captureImage.Resize(200, 200, Emgu.CV.CvEnum.Inter.Linear);
-            this.changedPicture.Image = resizedImage.ToBitmap();
+            this.changedPicture.Image = actionsImage.ResizedImage(orginalPicure);
         }
 
         private void button5_Click(object sender, EventArgs e)
         {
-            Bitmap rotatedPic = new Bitmap((Bitmap)this.orginalPicure.Image);
-            rotatedPic.RotateFlip(RotateFlipType.Rotate270FlipX);
-            this.changedPicture.Image = rotatedPic;
+            var actionsImageClone = (ActionsImage90)actionsImage.CopyActionsImage();
+            this.changedPicture.Image = actionsImageClone.RotatedPic(orginalPicure);
         }
     }
 }
