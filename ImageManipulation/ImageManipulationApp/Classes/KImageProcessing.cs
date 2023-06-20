@@ -11,12 +11,10 @@ namespace ImageManipulationApp.Classes
     {
         public KImageProcessing(IConvertImage convertImage) : base(convertImage){}
         public KImageProcessing(IActionsImage actionsImage) : base(actionsImage){ }
-
         public KImageProcessing(IActionsImageAll actionsImageAll) : base(actionsImageAll) { }
         public KImageProcessing(IResizedImage resizedImage) : base(resizedImage) { }
         public override Bitmap Convert(PictureBox orginalPicure) => convertImage.Convert(orginalPicure);
         public override IActionsImage CopyActionsImage() => actionsImage.CopyActionsImage();
-        //public override IActionsImageAll CopyActionsImage() => (IActionsImageAll)actionsImageAll.CopyActionsImage();
         public override Bitmap Resized(PictureBox orginalPicure) => resizedImage.Resized(orginalPicure);
     }
 }

@@ -34,6 +34,5 @@ namespace ImageManipulationApp.Classes
 
         public abstract IActionsImage CopyActionsImage();
         public abstract Bitmap Resized(PictureBox orginalPicure);
-        //public abstract IActionsImageAll CopyActionsImage();
     }
 }
