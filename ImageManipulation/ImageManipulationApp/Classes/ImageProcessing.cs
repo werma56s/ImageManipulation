@@ -9,7 +9,7 @@ namespace ImageManipulationApp.Classes
 {
     abstract class ImageProcessing 
     {
-        protected  IConvertImage convertImage;
+        protected IConvertImage convertImage;
         protected IActionsImage actionsImage;
         protected IResizedImage resizedImage;
 
@@ -28,5 +28,6 @@ namespace ImageManipulationApp.Classes
         public abstract Bitmap Convert(PictureBox orginalPicure);
 
         public abstract IActionsImage CopyActionsImage();
+        public abstract Bitmap Resized(PictureBox orginalPicure);
     }
 }
